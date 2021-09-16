@@ -1,0 +1,32 @@
+<div id="new-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
+
+<div class="container container-fluid">
+  
+  
+  
+    <% if @total_game == 0 %>
+    <div class="col-md-12">
+      <div class="alert alert-info mt-3" role="alert">
+        <strong>データが登録されていません</strong></br>
+        <% if user_signed_in? %>
+          データを登録してください。<%= link_to '登録する', new_result_path ,remote:true%>
+        <% else %>
+          データを登録するには<%= link_to '会員登録',new_user_registration_path %>をしてください。
+        <% end %>
+      </div>
+    </div>
+      
+
+    <% else %>
+    <div class="result">
+      <%= render 'result' %>
+    </div>
+    
+    
+    
+    <% end %>
+    
+    
+  
+  
+</div>

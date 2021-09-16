@@ -1,0 +1,51 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <%= form_with(model: @result, remote: true) do |form| %>
+    <div class="modal-header">
+      <h5 class="modal-title">記録登録</h5>
+        <%= link_to '', root_path ,local:true, class: "close"%>
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+
+      <div class="form-group">
+        <label for="formGroupExampleInput">日付</label>
+        <%= form.date_field :date,class:"form-control" %>
+      </div>
+      <div class="form-group">
+        <label for="formGroupExampleInput2">総回転数</label>
+        <%= form.number_field :game ,class:"form-control"%>
+      </div>
+      <div class="form-group">
+        <label for="formGroupExampleInput2">投資</label>
+        <%= form.number_field :investment ,class:"form-control"%>
+      </div>
+      <div class="form-group">
+        <label for="formGroupExampleInput2">回収</label>
+        <%= form.number_field :collect ,class:"form-control"%>
+      </div>
+      <div class="form-group">
+        <label for="formGroupExampleInput2">運命分岐 回数</label>
+        <%= form.number_field :branch ,class:"form-control"%>
+      </div>
+      <div class="form-group">
+        <label for="formGroupExampleInput2">運命分岐 ビタ成功回数</label>
+        <%= form.number_field :success ,class:"form-control"%>
+      </div>
+      <div class="form-group">
+        <label for="formGroupExampleInput2">トータルビタ 回数</label>
+        <%= form.number_field :total_branch ,class:"form-control"%>
+      </div>
+      <div class="form-group">
+        <label for="formGroupExampleInput2">トータルビタ 成功回数</label>
+        <%= form.number_field :total_branch_success ,class:"form-control"%>
+      </div>
+    </div>
+    <div class="modal-footer actions">
+      <%= form.submit "登録", class: "btn btn-primary"%>
+    </div>
+
+    <% end %>
+  </div>
+</div>

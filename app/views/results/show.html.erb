@@ -1,0 +1,36 @@
+<div class="container container-fluid">
+  <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>日付</th>
+          <th>回転数</th>
+          <th>投資</th>
+          <th>回収</th>
+          <th>運命分岐 ビタ回数</th>
+          <th>運命分岐 ビタ成功数</th>
+          <th>トータル ビタ回数</th>
+          <th>トータル ビタ成功数</th>
+        </tr>
+      </thead>
+      <tbody>
+            <tr>
+              <th scope="row"><%= @result.date %></th>
+              <td><%= @result.game %></td>
+              <td><%= @result.investment %></td>
+              <td><%= @result.collect %></td>
+              <td><%= @result.branch %></td>
+              <td><%= @result.success %></td>
+              <td><%= @result.total_branch %></td>
+              <td><%= @result.total_branch_success %></td>
+              
+            </tr>
+      </tbody>
+    </table>
+    <%= link_to 'Edit', edit_result_path(@result) %> |
+    <%= link_to 'Destroy', @result, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %>
+    <%= link_to 'Back', results_path %>
+</div>
+
+
+
+

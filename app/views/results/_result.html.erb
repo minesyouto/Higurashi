@@ -1,0 +1,47 @@
+<table class="table table-bordered">
+      <tr>
+          <th>合計収支</th>
+          <th>総回転数</th>
+          <th>トータル　運命分岐成功率</th>
+          <th>トータル ビタ成功率</th>
+        </tr>
+        <tr>
+          <td><%= @payment_result %>枚</td>
+          <td><%= @total_game %>回転</td>
+          <td><%= number_to_percentage(@total_cz_success,precision:2) %></td>
+          <td><%= number_to_percentage(@sum_success,precision:2) %></td>
+        </tr>
+    </table>
+
+    <div class="col-md-12">
+      <table class="table table-bordered">
+      <thead>
+        
+        <tr>
+          <th>日付</th>
+          <th>収支</th>
+          <th>回転数</th>
+          <th>ビタ成功率</th>
+        </tr>
+      </thead>
+
+      <tbody >
+        <% if @results.present? %>
+          <% @results.each do |result| %>
+            <tr>
+              <th scope="row"><%= result.date %></th>
+              <% @payment = result.collect.to_i - result.investment.to_i  %>
+              <td><%= @payment %></td>
+              <td><%= result.game %></td>
+              <% @success = (result.total_branch_success.to_f / result.total_branch.to_f) * 100 %>
+              <td><%= number_to_percentage(@success,precision:1) %></td>
+              <td><%= link_to '詳細', result %></td>
+              <td><%= link_to 'Edit', edit_result_path(result) %></td>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+
+
+

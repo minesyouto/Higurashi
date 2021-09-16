@@ -1,0 +1,4 @@
+<% if @status == 'success' %>
+    $("#result").html("<%= escape_javascript(render 'result') %>")
+<% end %>
+$("#new-modal").modal("hide");
